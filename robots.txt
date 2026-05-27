@@ -3,8 +3,7 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: https://massagenara.com/sitemap.xml
-Sitemap: https://massagenara.com/rss.xml
+Sitemap: https://remarkable-parfait-6ab17d.netlify.app/sitemap.xml
 
 User-agent: Googlebot
 Allow: /

@@ -7,7 +7,7 @@ $BusinessNumber = "815-26-00585"
 $CompanyAddress = "경기도 파주시 청석로 268"
 $Phone = "0508-202-4743"
 $Tel = "tel:05082024743"
-$BaseUrl = "https://massagenara.com"
+$BaseUrl = "https://remarkable-parfait-6ab17d.netlify.app"
 $Author = "마사지나라 콘텐츠팀"
 $Reviewer = "마사지나라 안전운영팀"
 $Today = "2026-05-27"
@@ -332,13 +332,12 @@ $rssItems = @(
   @{Path="/magazine/after-work-recovery/"; Title="퇴근 후 몸을 편하게 쉬게 하는 관리 순서"; Description="샤워, 조명, 수분 섭취, 무리한 운동 피하기 등 예약 전 준비 정보입니다."}
 )
 $rssDate = ([DateTime]::ParseExact($Today, "yyyy-MM-dd", $null)).ToUniversalTime().ToString("r", [System.Globalization.CultureInfo]::InvariantCulture)
-$rss = "<?xml version=""1.0"" encoding=""UTF-8""?>`n<rss version=""2.0"" xmlns:atom=""http://www.w3.org/2005/Atom"">`n  <channel>`n"
+$rss = "<?xml version=""1.0"" encoding=""UTF-8""?>`n<rss version=""2.0"">`n  <channel>`n"
 $rss += "    <title>$(Escape-Xml "$Brand 출장마사지 예약 안내")</title>`n"
 $rss += "    <link>$BaseUrl/</link>`n"
 $rss += "    <description>$(Escape-Xml "마사지나라 주요 예약 안내와 지역·서비스 업데이트")</description>`n"
 $rss += "    <language>ko-KR</language>`n"
 $rss += "    <lastBuildDate>$rssDate</lastBuildDate>`n"
-$rss += "    <atom:link href=""$BaseUrl/rss.xml"" rel=""self"" type=""application/rss+xml"" />`n"
 foreach ($item in $rssItems) {
   $itemUrl = "$BaseUrl$($item.Path)"
   $rss += "    <item>`n"
@@ -360,7 +359,6 @@ Disallow: /admin/
 Disallow: /api/
 
 Sitemap: $BaseUrl/sitemap.xml
-Sitemap: $BaseUrl/rss.xml
 
 User-agent: Googlebot
 Allow: /
