@@ -91,6 +91,8 @@ function Meta($Title,$Description,$Path) {
 <meta name="author" content="$Author">
 <link rel="canonical" href="$url">
 <link rel="alternate" hreflang="ko-KR" href="$url">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="alternate" type="application/rss+xml" title="$Brand RSS" href="/rss.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="$Brand">
 <meta property="og:locale" content="ko_KR">

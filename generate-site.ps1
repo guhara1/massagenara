@@ -63,6 +63,10 @@ function Escape-Json([string]$Value) {
   return ($Value -replace '\\','\\' -replace '"','\"' -replace "`r?`n",' ')
 }
 
+function Escape-Xml([string]$Value) {
+  return [System.Security.SecurityElement]::Escape($Value)
+}
+
 function Meta([string]$Title, [string]$Description, [string]$Path) {
   $url = "$BaseUrl$Path"
   $verification = if ($Path -eq "/") { "<meta name=""naver-site-verification"" content=""8359fb3eb06670e881943c6279bc20399c4f0e81"">`n<meta name=""google-site-verification"" content=""MU_vE-O28ixg9Dcxc3NG_yDEMbtaCnBohs289fRl8P8"">`n" } else { "" }
@@ -79,6 +83,8 @@ $verification<meta name="robots" content="index,follow,max-image-preview:large,m
 <meta name="author" content="$Author">
 <link rel="canonical" href="$url">
 <link rel="alternate" hreflang="ko-KR" href="$url">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="alternate" type="application/rss+xml" title="$Brand RSS" href="/rss.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="$Brand">
 <meta property="og:locale" content="ko_KR">
@@ -317,6 +323,36 @@ foreach ($p in $allPaths) { $prio = if ($p -eq "/") {"1.0"} elseif ($p -like "/l
 $sitemap += "</urlset>`n"
 Write-Utf8File "sitemap.xml" $sitemap
 
+$rssItems = @(
+  @{Path="/"; Title="$Brand 출장마사지 예약 서비스"; Description="건전 출장마사지, 가격 사전 안내, 예약제 운영, 불법 서비스 불가 원칙을 확인하세요."},
+  @{Path="/locations/"; Title="출장마사지 지역 안내"; Description="서울, 경기, 인천, 부산의 출장 가능 지역과 상세 지역 페이지를 확인하세요."},
+  @{Path="/services/"; Title="출장마사지 서비스 안내"; Description="아로마, 스포츠, 딥티슈, 커플, 직장인 피로 관리 서비스를 비교하세요."},
+  @{Path="/pricing/"; Title="출장마사지 가격 안내"; Description="서비스별 시작가, 출장비, 추가 비용과 취소 기준을 확인하세요."},
+  @{Path="/magazine/home-massage-safety/"; Title="출장마사지 예약 전 확인할 안전 기준"; Description="방문 전 확인할 신원, 관리 범위, 결제 기록과 공간 준비 기준입니다."},
+  @{Path="/magazine/after-work-recovery/"; Title="퇴근 후 몸을 편하게 쉬게 하는 관리 순서"; Description="샤워, 조명, 수분 섭취, 무리한 운동 피하기 등 예약 전 준비 정보입니다."}
+)
+$rssDate = ([DateTime]::ParseExact($Today, "yyyy-MM-dd", $null)).ToUniversalTime().ToString("r", [System.Globalization.CultureInfo]::InvariantCulture)
+$rss = "<?xml version=""1.0"" encoding=""UTF-8""?>`n<rss version=""2.0"" xmlns:atom=""http://www.w3.org/2005/Atom"">`n  <channel>`n"
+$rss += "    <title>$(Escape-Xml "$Brand 출장마사지 예약 안내")</title>`n"
+$rss += "    <link>$BaseUrl/</link>`n"
+$rss += "    <description>$(Escape-Xml "마사지나라 주요 예약 안내와 지역·서비스 업데이트")</description>`n"
+$rss += "    <language>ko-KR</language>`n"
+$rss += "    <lastBuildDate>$rssDate</lastBuildDate>`n"
+$rss += "    <atom:link href=""$BaseUrl/rss.xml"" rel=""self"" type=""application/rss+xml"" />`n"
+foreach ($item in $rssItems) {
+  $itemUrl = "$BaseUrl$($item.Path)"
+  $rss += "    <item>`n"
+  $rss += "      <title>$(Escape-Xml $item.Title)</title>`n"
+  $rss += "      <link>$itemUrl</link>`n"
+  $rss += "      <guid isPermaLink=""true"">$itemUrl</guid>`n"
+  $rss += "      <description>$(Escape-Xml $item.Description)</description>`n"
+  $rss += "      <pubDate>$rssDate</pubDate>`n"
+  $rss += "    </item>`n"
+}
+$rss += "  </channel>`n</rss>`n"
+Write-Utf8File "rss.xml" $rss
+Write-Utf8File "feed.xml" $rss
+
 Write-Utf8File "robots.txt" @"
 User-agent: *
 Allow: /
@@ -324,6 +360,13 @@ Disallow: /admin/
 Disallow: /api/
 
 Sitemap: $BaseUrl/sitemap.xml
+Sitemap: $BaseUrl/rss.xml
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yeti
+Allow: /
 "@
 
 Write-Utf8File "site.webmanifest" @"
