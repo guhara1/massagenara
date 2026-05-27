@@ -1,5 +1,9 @@
 $ErrorActionPreference = "Stop"
 $Brand = "마사지나라"
+$Company = "YH LAB"
+$Representative = "김유환"
+$BusinessNumber = "815-26-00585"
+$CompanyAddress = "경기도 파주시 청석로 268"
 $Phone = "0508-202-4743"
 $Tel = "tel:05082024743"
 $BaseUrl = "https://massagenara.com"
@@ -104,7 +108,7 @@ function FooterHtml {
       <div><h3>안내</h3><a href="/policy/privacy/">개인정보처리방침</a><a href="/policy/terms/">이용약관</a><a href="/policy/youth/">청소년 보호정책</a><a href="/authors/">작성자와 검수자</a></div>
     </div>
     <div class="footer-ops"><strong>예약전화 $Phone</strong><span>상담 가능 시간 10:00-02:00, 지역별 가능 시간은 예약 시 확인합니다.</span></div>
-    <div class="company-info"><span>상호: $Brand</span><span>대표자: 공개 준비 중</span><span>사업자등록번호: 공개 준비 중</span><span>주소: 예약 상담 시 고지</span><span>통신판매업 신고: 해당 시 공개</span><span>개인정보보호 책임자: 운영 책임자</span></div>
+    <div class="company-info"><span>회사: $Company</span><span>대표: $Representative</span><span>사업자등록번호: $BusinessNumber</span><span>주소: $CompanyAddress</span><span>브랜드: $Brand</span><span>개인정보보호 책임자: 운영 책임자</span></div>
     <p class="legal">본 사이트의 콘텐츠는 검색 순위 조작을 위한 대량 복제 문서가 아니라, 예약 전 확인해야 할 범위와 안전 기준을 설명하기 위한 정보입니다. 마사지나 관리는 질병의 진단, 치료, 처방을 대신하지 않으며 통증이나 질환이 있으면 의료 전문가에게 상담해야 합니다.</p>
   </div>
 </footer>
@@ -129,7 +133,7 @@ function JsonLd($Title, $Description, $Path, $FaqJson, $Dongs) {
   $url = "$BaseUrl$Path"
   $areas = ($Dongs | ForEach-Object { """$_""" }) -join ","
 @"
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"$BaseUrl/#org","name":"$Brand","url":"$BaseUrl/","telephone":"$Phone"},{"@type":"WebSite","@id":"$BaseUrl/#website","name":"$Brand","url":"$BaseUrl/","publisher":{"@id":"$BaseUrl/#org"}},{"@type":"LocalBusiness","@id":"$url#local","name":"$Brand $Title","url":"$url","telephone":"$Phone","priceRange":"상담 후 확정","areaServed":[$areas]},{"@type":"Article","headline":"$(Escape-Json $Title)","description":"$(Escape-Json $Description)","author":{"@type":"Organization","name":"$Author"},"reviewedBy":{"@type":"Organization","name":"$Reviewer"},"dateModified":"$Today","mainEntityOfPage":"$url","citation":"$SourceUrl"},{"@type":"FAQPage",$FaqJson}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"$BaseUrl/#org","name":"$Brand","legalName":"$Company","alternateName":"$Brand","taxID":"$BusinessNumber","founder":{"@type":"Person","name":"$Representative"},"address":{"@type":"PostalAddress","streetAddress":"청석로 268","addressLocality":"파주시","addressRegion":"경기도","addressCountry":"KR"},"url":"$BaseUrl/","telephone":"$Phone"},{"@type":"WebSite","@id":"$BaseUrl/#website","name":"$Brand","url":"$BaseUrl/","publisher":{"@id":"$BaseUrl/#org"}},{"@type":"LocalBusiness","@id":"$url#local","name":"$Brand $Title","legalName":"$Company","taxID":"$BusinessNumber","address":{"@type":"PostalAddress","streetAddress":"청석로 268","addressLocality":"파주시","addressRegion":"경기도","addressCountry":"KR"},"url":"$url","telephone":"$Phone","priceRange":"상담 후 확정","areaServed":[$areas]},{"@type":"Article","headline":"$(Escape-Json $Title)","description":"$(Escape-Json $Description)","author":{"@type":"Organization","name":"$Author"},"reviewedBy":{"@type":"Organization","name":"$Reviewer"},"dateModified":"$Today","mainEntityOfPage":"$url","citation":"$SourceUrl"},{"@type":"FAQPage",$FaqJson}]}</script>
 "@
 }
 
