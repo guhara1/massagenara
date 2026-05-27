@@ -87,7 +87,7 @@ function HeaderHtml {
     <a class="brand" href="/" aria-label="$Brand 홈"><img src="/assets/logo.svg" alt="$Brand" width="112" height="52" fetchpriority="high"></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu"><span></span><span></span><span></span></button>
     <div id="primary-menu" class="menu">
-      <div class="has-sub"><a href="/services/">서비스</a><div class="submenu"><a href="/services/swedish/">스웨디시</a><a href="/services/aroma/">아로마</a><a href="/services/deep-tissue/">딥티슈</a><a href="/services/foot/">풋케어</a><a href="/services/couple/">커플관리</a></div></div>
+      <div class="has-sub"><a href="/services/">서비스</a><div class="submenu"><a href="/services/aroma/">아로마 출장마사지</a><a href="/services/sports/">스포츠 출장마사지</a><a href="/services/deep-tissue/">딥티슈 출장마사지</a><a href="/services/couple/">커플 출장마사지</a><a href="/services/office-worker/">직장인 피로 관리</a></div></div>
       <div class="has-sub"><a href="/locations/">지역</a><div class="submenu"><a href="/locations/seoul/">서울</a><a href="/locations/gyeonggi/">경기</a><a href="/locations/incheon/">인천</a><a href="/locations/busan/">부산</a></div></div>
       <a href="/pricing/">요금</a><a href="/magazine/">매거진</a><a href="/reviews/">후기</a>
       <a class="cta-pill" href="$Tel">예약전화 $Phone</a>
@@ -103,7 +103,7 @@ function FooterHtml {
   <div class="footer-wrap">
     <div class="footer-grid">
       <div><img src="/assets/logo.svg" alt="$Brand" width="132" height="62"><p>${Brand}는 고객이 머무는 공간에서 예약형 웰니스 관리를 안내하는 출장마사지 브랜드입니다. 모든 안내는 의료 행위가 아닌 휴식 목적의 건강관리 정보입니다.</p></div>
-      <div><h3>서비스</h3><a href="/services/swedish/">스웨디시</a><a href="/services/aroma/">아로마</a><a href="/services/deep-tissue/">딥티슈</a><a href="/services/foot/">풋케어</a></div>
+      <div><h3>서비스</h3><a href="/services/aroma/">아로마</a><a href="/services/sports/">스포츠</a><a href="/services/deep-tissue/">딥티슈</a><a href="/services/couple/">커플</a><a href="/services/office-worker/">직장인 피로 관리</a></div>
       <div><h3>지역</h3><a href="/locations/seoul/">서울</a><a href="/locations/gyeonggi/">경기</a><a href="/locations/incheon/">인천</a><a href="/locations/busan/">부산</a></div>
       <div><h3>안내</h3><a href="/policy/privacy/">개인정보처리방침</a><a href="/policy/terms/">이용약관</a><a href="/policy/youth/">청소년 보호정책</a><a href="/authors/">작성자와 검수자</a></div>
     </div>

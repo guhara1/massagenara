@@ -13,11 +13,11 @@ $Reviewer = "마사지나라 안전운영팀"
 $Today = "2026-05-27"
 
 $Services = @(
-  @{Slug="swedish"; Name="스웨디시"; Tone="부드러운 압과 느린 리듬으로 긴장을 낮추는 휴식형 관리"; Price="100,000원부터"},
-  @{Slug="aroma"; Name="아로마"; Tone="향과 오일을 활용해 피부 마찰을 줄이고 편안함을 높이는 관리"; Price="110,000원부터"},
-  @{Slug="deep-tissue"; Name="딥티슈"; Tone="강한 압보다 근육 결 방향을 살피는 집중형 관리"; Price="120,000원부터"},
-  @{Slug="foot"; Name="풋케어"; Tone="이동과 서Standing으로 피로가 쌓인 발과 종아리를 중심으로 진행"; Price="80,000원부터"},
-  @{Slug="couple"; Name="커플관리"; Tone="두 명이 같은 시간대에 받을 수 있도록 동선을 조율하는 예약형 관리"; Price="190,000원부터"}
+  @{Slug="aroma"; Name="아로마 출장마사지"; Tone="오일과 향을 활용해 긴장을 낮추는 예약제 피로 관리"; Price="110,000원부터"},
+  @{Slug="sports"; Name="스포츠 출장마사지"; Tone="운동 후 뭉침과 일상 피로를 고려한 압 조절형 관리"; Price="100,000원부터"},
+  @{Slug="deep-tissue"; Name="딥티슈 출장마사지"; Tone="강한 압보다 근육 결 방향과 컨디션을 살피는 집중 관리"; Price="120,000원부터"},
+  @{Slug="couple"; Name="커플 출장마사지"; Tone="두 명이 같은 시간대에 받을 수 있도록 동선을 조율하는 예약 관리"; Price="190,000원부터"},
+  @{Slug="office-worker"; Name="직장인 피로 관리"; Tone="퇴근 후 어깨, 허리, 종아리 피로를 중심으로 상담하는 관리"; Price="90,000원부터"}
 )
 
 $Therapists = @(
@@ -121,7 +121,7 @@ function FooterHtml {
   <div class="footer-wrap">
     <div class="footer-grid">
       <div><img src="/assets/logo.svg" alt="$Brand" width="132" height="62"><p>$Brand는 고객이 머무는 공간에서 예약형 웰니스 관리를 안내하는 출장마사지 브랜드입니다. 모든 안내는 의료 행위가 아닌 휴식 목적의 건강관리 정보입니다.</p></div>
-      <div><h3>서비스</h3><a href="/services/swedish/">스웨디시</a><a href="/services/aroma/">아로마</a><a href="/services/deep-tissue/">딥티슈</a><a href="/services/foot/">풋케어</a></div>
+      <div><h3>서비스</h3><a href="/services/aroma/">아로마</a><a href="/services/sports/">스포츠</a><a href="/services/deep-tissue/">딥티슈</a><a href="/services/couple/">커플</a><a href="/services/office-worker/">직장인 피로 관리</a></div>
       <div><h3>지역</h3><a href="/locations/seoul/">서울</a><a href="/locations/gyeonggi/">경기</a><a href="/locations/incheon/">인천</a><a href="/locations/busan/">부산</a></div>
       <div><h3>안내</h3><a href="/policy/privacy/">개인정보처리방침</a><a href="/policy/terms/">이용약관</a><a href="/policy/youth/">청소년 보호정책</a><a href="/authors/">작성자와 검수자</a></div>
     </div>
@@ -150,7 +150,7 @@ function NoteCards($Items) {
 function PriceGrid {
   $cards = ""
   foreach ($svc in $Services) {
-    $cards += "<article class=""price-card""><span class=""kicker"">$($svc.Name)</span><h3>$($svc.Price)</h3><p>$($svc.Tone)</p><div class=""time-rows""><div><span>60분</span><b>상담 후 확정</b></div><div><span>90분</span><b>추천</b></div><div><span>120분</span><b>여유형</b></div></div></article>"
+    $cards += "<article class=""price-card""><span class=""kicker"">$($svc.Name)</span><h3>$($svc.Price)</h3><p>$($svc.Tone)</p><div class=""time-rows""><div><span>60분</span><b>기본 상담</b></div><div><span>90분</span><b>추천</b></div><div><span>120분</span><b>여유형</b></div><div><span>출장비</span><b>지역별 사전 안내</b></div></div></article>"
   }
   return "<div class=""price-grid"">$cards</div>"
 }
@@ -237,10 +237,10 @@ function SectionPage($Kind, $Slug, $Name, $Lead, $Extra) {
 }
 
 function HomePage {
-  $desc = "마사지나라 출장마사지 예약전화 $Phone. 서울, 경기, 인천, 부산 지역의 휴식형 방문 관리와 안전 기준을 안내합니다."
+  $desc = "마사지나라 출장마사지 예약 서비스. 건전 출장마사지, 피로 관리, 가격 사전 안내, 예약제 운영 원칙을 확인하세요."
   $serviceCards = ($Services | ForEach-Object { "<a class=""svc reveal"" href=""/services/$($_.Slug)/""><span>$($_.Name)</span><h3>$($_.Tone)</h3><p>$($_.Price)</p></a>" }) -join ""
   $regionCards = ($Regions | ForEach-Object { "<a class=""reg reveal"" href=""/locations/$($_.Slug)/""><span>$($_.Name)</span><h3>$($_.Areas.Count)개 권역 안내</h3><p>지역별 이동 시간과 예약 전 확인 사항을 따로 정리했습니다.</p></a>" }) -join ""
-  $copy = BodyCopy "출장마사지" "서울, 경기, 인천, 부산" "홈페이지의 모든 주요 문서는 작성자와 검수자를 표시하고, 구조화 데이터에는 화면에 보이는 정보만 담았습니다."
+  $copy = "마사지나라의 출장마사지 예약 서비스는 건전 출장마사지, 피로 관리, 예약제 운영을 기준으로 안내합니다. 고객이 먼저 확인해야 할 것은 서비스명이 아니라 관리 범위, 가격, 출장 가능 지역, 취소 조건, 불법·퇴폐 서비스 제공 불가 원칙입니다. 이 홈 페이지는 검색 키워드를 반복하기보다 실제 예약 전에 필요한 정보를 순서대로 배치했습니다.`n`n문의가 들어오면 현재 지역, 희망 시간, 인원, 공간 조건, 원하는 관리 강도를 확인합니다. 이후 출장 가능 여부와 가격, 출장비, 취소 기준을 사전에 안내하고 고객이 동의한 경우에만 예약을 확정합니다. 모든 안내는 의료 행위가 아닌 휴식형 웰니스 서비스 기준이며, 통증이나 질환이 있으면 의료 전문가 상담이 우선입니다.`n`n카카오톡 채널과 온라인 예약폼은 실제 연결 정보가 확인된 뒤 공개하는 것이 맞습니다. 그래서 현재 화면에는 전화와 문자 상담을 실제 CTA로 제공하고, 카카오톡과 예약폼은 채널 정보 준비가 필요한 항목으로 표시합니다. 확인되지 않은 링크를 만드는 것보다 실제로 연결되는 방법만 공개하는 편이 사용자 신뢰와 검색 품질 모두에 안전합니다."
   $notes = NoteCards @(
     @{Title="Experience"; Body="고객이 실제로 묻는 예약 조건, 이동 시간, 공간 준비, 취소 기준을 중심으로 문서를 구성했습니다."},
     @{Title="Expertise"; Body="관리 범위와 안전 표현을 구분하여 의료적 효능을 보장하는 문장을 사용하지 않습니다."},
@@ -248,19 +248,23 @@ function HomePage {
     @{Title="Trust"; Body="회사명 YH LAB, 대표 김유환, 사업자등록번호 815-26-00585, 주소 경기도 파주시 청석로 268을 푸터에 공개했습니다."}
   )
   $main = @"
-<section class="marquee" aria-hidden="true"><div><span>서울 출장마사지</span><span>경기 출장마사지</span><span>인천 출장마사지</span><span>부산 출장마사지</span><span>예약전화 $Phone</span><span>휴식형 방문 관리</span><span>안전 기준 안내</span><span>서울 출장마사지</span><span>경기 출장마사지</span><span>인천 출장마사지</span><span>부산 출장마사지</span></div></section>
-<section class="wrap"><div class="section-head"><span class="eyebrow">SIGNATURE SERVICES</span><h2>상황에 맞춰 고르는 관리</h2></div><div class="card-grid">$serviceCards</div></section>
-<section class="wrap" id="region"><div class="section-head"><span class="eyebrow">SERVICE AREA</span><h2>지역별 안내</h2></div><div class="card-grid">$regionCards</div></section>
-<section class="wrap prose"><div class="section-head"><span class="eyebrow">ABOUT</span><h2>$Brand가 안내하는 예약 기준</h2></div><div class="copy"><p>$($copy -replace "`n`n","</p><p>")</p></div></section>
+<section class="marquee" aria-hidden="true"><div><span>건전 출장마사지</span><span>피로 관리</span><span>가격 사전 안내</span><span>예약제 운영</span><span>불법 서비스 불가</span><span>예약전화 $Phone</span><span>건전 출장마사지</span><span>피로 관리</span><span>가격 사전 안내</span></div></section>
+<section class="wrap trust-band"><div class="dong-grid"><span class="dong-chip">건전 서비스</span><span class="dong-chip">가격 사전 안내</span><span class="dong-chip">예약제</span><span class="dong-chip">불법 서비스 불가</span></div></section>
+<section class="wrap"><div class="section-head"><span class="eyebrow">SERVICE GUIDE</span><h2>서비스 안내</h2></div><div class="card-grid">$serviceCards</div></section>
+<section class="wrap" id="region"><div class="section-head"><span class="eyebrow">SERVICE AREA</span><h2>출장 가능 지역</h2></div><div class="card-grid">$regionCards</div></section>
+<section class="wrap"><div class="section-head"><span class="eyebrow">PRICE</span><h2>가격 안내</h2><p class="source-note">서비스별 시작가는 상담 기준이며, 출장비는 지역과 시간대에 따라 예약 전 별도로 안내합니다.</p></div>$(PriceGrid)</section>
+<section class="wrap process"><div class="section-head"><span class="eyebrow">PROCESS</span><h2>이용 절차</h2></div><div class="dong-grid"><span class="dong-chip">문의</span><span class="dong-chip">지역 확인</span><span class="dong-chip">가격 안내</span><span class="dong-chip">예약 확정</span><span class="dong-chip">방문</span><span class="dong-chip">관리 진행</span></div></section>
+<section class="wrap prose"><div class="section-head"><span class="eyebrow">POLICY</span><h2>운영 정책</h2></div><div class="copy"><p>$($copy -replace "`n`n","</p><p>")</p></div></section>
 <section class="wrap notes">$notes</section>
-<section class="wrap"><div class="section-head"><span class="eyebrow">PRICE</span><h2>요금은 상담 후 확정합니다</h2></div>$(PriceGrid)</section>
+<section class="wrap reviews"><div class="section-head"><span class="eyebrow">REVIEWS</span><h2>실제 이용 후기 운영 기준</h2></div><div class="card-grid"><article class="svc"><span>공개 동의</span><h3>실제 이용 후기만 반영</h3><p>개인 식별 정보와 과장 표현은 제외하고, 예약 과정에서 확인 가능한 응대·시간·공간 준비 중심으로 관리합니다.</p></article><article class="svc"><span>허위 후기 불가</span><h3>가짜 평점 사용 안 함</h3><p>확인되지 않은 후기를 임의로 만들지 않으며, 공개 가능한 실제 후기 자료가 확보된 경우에만 추가합니다.</p></article></div></section>
+<section class="wrap cta-options" id="reservation-form"><div class="section-head"><span class="eyebrow">RESERVATION</span><h2>예약 CTA</h2></div><div class="card-grid"><a class="svc" href="$Tel"><span>전화</span><h3>$Phone</h3><p>가장 빠른 예약 상담 방법입니다.</p></a><a class="svc" href="sms:05082024743"><span>문자</span><h3>문자 상담</h3><p>지역과 희망 시간을 남겨주시면 확인 후 안내합니다.</p></a><article class="svc"><span>카카오톡</span><h3>채널 정보 필요</h3><p>실제 카카오톡 채널 URL이 확인되면 연결 버튼으로 공개합니다.</p></article><article class="svc"><span>예약폼</span><h3>접수처 정보 필요</h3><p>개인정보 수신처와 보관 기준이 확정되면 예약폼을 활성화합니다.</p></article></div></section>
 "@
-  Page "/" "$Brand | 출장마사지 예약전화 $Phone" $desc "출장마사지, 확인할수록 편안해집니다" "마사지나라는 예약 전 확인해야 할 범위, 안전 기준, 비용 조건을 먼저 설명하는 방문형 웰니스 안내 사이트입니다." $main "출장마사지"
+  Page "/" "$Brand | 출장마사지 예약 서비스" $desc "출장마사지 예약 서비스" "건전 출장마사지 · 피로 관리 · 예약제 운영" $main "출장마사지"
 }
 
 HomePage
 
-SectionPage "services" "" "서비스 전체" "스웨디시, 아로마, 딥티슈, 풋케어, 커플관리를 한눈에 비교합니다." "서비스 전체 페이지에서는 코스별 차이를 과장 없이 설명합니다."
+SectionPage "services" "" "서비스 전체" "아로마, 스포츠, 딥티슈, 커플, 직장인 피로 관리를 한눈에 비교합니다." "서비스 전체 페이지에서는 코스별 차이를 과장 없이 설명합니다."
 foreach ($svc in $Services) { SectionPage "services" $svc.Slug $svc.Name $svc.Tone "해당 코스는 고객의 선호 압과 공간 조건에 따라 상담 단계에서 조정됩니다." }
 
 SectionPage "therapists" "" "관리사 전체" "국적보다 소통, 관리 범위, 고객 선호가 더 중요하다는 기준으로 안내합니다." "관리사 국적은 선택 참고 정보일 뿐 품질 보장을 의미하지 않습니다."
