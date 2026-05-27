@@ -112,6 +112,7 @@ function FooterHtml {
     <p class="legal">본 사이트의 콘텐츠는 검색 순위 조작을 위한 대량 복제 문서가 아니라, 예약 전 확인해야 할 범위와 안전 기준을 설명하기 위한 정보입니다. 마사지나 관리는 질병의 진단, 치료, 처방을 대신하지 않으며 통증이나 질환이 있으면 의료 전문가에게 상담해야 합니다.</p>
   </div>
 </footer>
+<a class="mobile-call" href="$Tel" aria-label="예약전화 $Phone 연결"><span>예약전화</span><strong>$Phone</strong></a>
 <script src="/assets/app.js" defer></script>
 "@
 }
