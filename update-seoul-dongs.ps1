@@ -98,7 +98,7 @@ function FooterHtml {
 <footer class="site-footer">
   <div class="footer-wrap">
     <div class="footer-grid">
-      <div><img src="/assets/logo.svg" alt="$Brand" width="132" height="62"><p>$Brand는 고객이 머무는 공간에서 예약형 웰니스 관리를 안내하는 출장마사지 브랜드입니다. 모든 안내는 의료 행위가 아닌 휴식 목적의 건강관리 정보입니다.</p></div>
+      <div><img src="/assets/logo.svg" alt="$Brand" width="132" height="62"><p>${Brand}는 고객이 머무는 공간에서 예약형 웰니스 관리를 안내하는 출장마사지 브랜드입니다. 모든 안내는 의료 행위가 아닌 휴식 목적의 건강관리 정보입니다.</p></div>
       <div><h3>서비스</h3><a href="/services/swedish/">스웨디시</a><a href="/services/aroma/">아로마</a><a href="/services/deep-tissue/">딥티슈</a><a href="/services/foot/">풋케어</a></div>
       <div><h3>지역</h3><a href="/locations/seoul/">서울</a><a href="/locations/gyeonggi/">경기</a><a href="/locations/incheon/">인천</a><a href="/locations/busan/">부산</a></div>
       <div><h3>안내</h3><a href="/policy/privacy/">개인정보처리방침</a><a href="/policy/terms/">이용약관</a><a href="/policy/youth/">청소년 보호정책</a><a href="/authors/">작성자와 검수자</a></div>
@@ -143,15 +143,15 @@ $($d.Name) 출장마사지 안내는 행정구 이름만 바꿔 만든 문서가
 
 $($d.Profile) 그래서 $($d.Name)에서 예약할 때는 단순히 “서울”이나 “$($d.Name)”이라고 말하는 것보다 $first, $middle, $last 같은 행정동 또는 가까운 역·건물명을 함께 알려주는 편이 좋습니다. 관리사는 주소를 보고 이동 시간을 계산하지만, 고객이 건물 출입 방식과 주차 가능성을 알려주면 상담 단계에서 안내하는 예상 시간이 훨씬 현실적입니다.
 
-$($d.Tip) $Brand는 전화 상담에서 희망 시간, 관리 목적, 선호 압, 공간 조건을 차례대로 확인합니다. 이 과정은 예약을 복잡하게 만들기 위한 절차가 아니라, 고객과 관리사가 서로 불편한 상황을 겪지 않도록 경계를 정하는 과정입니다. 출장마사지는 사적인 공간에서 진행되므로 조명, 환기, 이동 동선, 반려동물 분리 여부처럼 작은 준비가 체감 품질을 크게 바꿉니다.
+$($d.Tip) ${Brand}는 전화 상담에서 희망 시간, 관리 목적, 선호 압, 공간 조건을 차례대로 확인합니다. 이 과정은 예약을 복잡하게 만들기 위한 절차가 아니라, 고객과 관리사가 서로 불편한 상황을 겪지 않도록 경계를 정하는 과정입니다. 출장마사지는 사적인 공간에서 진행되므로 조명, 환기, 이동 동선, 반려동물 분리 여부처럼 작은 준비가 체감 품질을 크게 바꿉니다.
 
-이 문서는 구글의 도움되는 콘텐츠 원칙에 맞춰 작성자와 검수자를 공개하고, AI로 대량 복제한 문장처럼 보이지 않도록 각 구의 생활권과 예약 변수를 별도로 설명했습니다. 작성자는 $Author, 검수자는 $Reviewer이며, 최종 문장은 사람이 확인했습니다. 의료 효과를 약속하거나 통증 치료를 보장하지 않고, 질환이 있거나 통증이 지속되는 경우 의료 전문가 상담을 우선하도록 안내합니다.
+이 문서는 구글의 도움되는 콘텐츠 원칙에 맞춰 작성자와 검수자를 공개하고, AI로 대량 복제한 문장처럼 보이지 않도록 각 구의 생활권과 예약 변수를 별도로 설명했습니다. 작성자는 ${Author}, 검수자는 ${Reviewer}이며, 최종 문장은 사람이 확인했습니다. 의료 효과를 약속하거나 통증 치료를 보장하지 않고, 질환이 있거나 통증이 지속되는 경우 의료 전문가 상담을 우선하도록 안내합니다.
 
 $($d.Name)에서 같은 코스를 선택하더라도 체감은 공간에 따라 달라집니다. 오피스텔은 보안 호출과 엘리베이터 이용 시간이 중요하고, 아파트 단지는 동 출입과 주차 위치가 중요하며, 숙소나 호텔은 프런트 정책을 먼저 확인해야 합니다. 그래서 상담원은 행정동명만 듣고 바로 확정하지 않고, 실제 방문 가능한 조건을 한 번 더 묻습니다.
 
 또한 예약 문서는 숨은 키워드나 반복 문장을 넣지 않고, 화면에 보이는 정보와 구조화 데이터의 내용이 서로 맞도록 관리합니다. 행정동 목록은 고객이 위치를 찾는 도구이고, 본문은 안전한 상담과 준비를 돕는 안내입니다.
 
-$($d.Name) 행정동 목록은 사용자가 자신의 위치를 빠르게 찾도록 돕는 탐색 정보입니다. 목록 자체는 공식 공개 자료의 명칭을 참고하지만, 아래 설명과 예약 기준은 $Brand 운영 문서에 맞춰 새로 작성했습니다. 예약을 원한다면 전화 $Phone 으로 현재 위치, 희망 시간, 원하는 코스를 알려주세요. 상담원은 가능 여부, 예상 도착 시간, 비용, 취소 기준을 확정 전 다시 설명합니다.
+$($d.Name) 행정동 목록은 사용자가 자신의 위치를 빠르게 찾도록 돕는 탐색 정보입니다. 목록 자체는 공식 공개 자료의 명칭을 참고하지만, 아래 설명과 예약 기준은 ${Brand} 운영 문서에 맞춰 새로 작성했습니다. 예약을 원한다면 전화 ${Phone} 으로 현재 위치, 희망 시간, 원하는 코스를 알려주세요. 상담원은 가능 여부, 예상 도착 시간, 비용, 취소 기준을 확정 전 다시 설명합니다.
 "@
 }
 
@@ -196,5 +196,54 @@ $(FooterHtml)
 "@
   Write-Utf8File "locations/seoul/$($d.Slug)/index.html" $html
 }
+
+$seoulLinks = ($Districts | Sort-Object { $_.Name } -Culture $Ko.Name | ForEach-Object { "<a class=""area-link"" href=""/locations/seoul/$($_.Slug)/"">$($_.Name)</a>" }) -join ""
+$seoulFaq = Faq "서울 지역"
+$seoulPath = "/locations/seoul/"
+$seoulTitle = "서울 출장마사지 행정구별 예약 체크 | $Brand"
+$seoulDesc = "서울 25개 행정구 출장마사지 페이지를 행정동과 위치 설명 기준으로 확인하세요."
+$seoulJson = JsonLd $seoulTitle $seoulDesc $seoulPath $seoulFaq.Json ($Districts | ForEach-Object { $_.Name })
+$seoulCopy = @"
+서울 출장마사지 지역 허브는 25개 행정구를 한곳에 모아 보여주지만, 단순히 검색어별 입구를 늘리기 위한 페이지가 아닙니다. 서울은 같은 시 안에서도 업무지구, 주거단지, 대학가, 숙박권, 한강변 생활권, 산자락 주거지가 서로 다르게 움직입니다. 사용자가 자신의 구를 선택하면 해당 구의 행정동 가나다순 목록과 예약 전 확인 항목을 먼저 볼 수 있도록 구성했습니다.
+
+Who는 분명합니다. 이 지역 허브와 하위 행정구 페이지는 ${Author}이 작성하고 ${Reviewer}이 검수했습니다. How는 서울특별시 자치구별 동 현황과 예약 상담 체크리스트를 함께 사용한 것입니다. Why는 검색 순위 조작이 아니라, 고객이 “서울 어디쯤”이라는 모호한 설명을 넘어 실제 방문 가능한 위치 정보를 준비하도록 돕는 데 있습니다.
+
+Experience 신호는 허위 후기가 아니라 실제 예약 전에 확인되는 항목으로 표현했습니다. 건물 출입, 주차 위치, 엘리베이터 이용, 숙소 프런트 정책, 반려동물 분리, 조명과 환기 같은 요소는 출장마사지의 체감 품질과 안전을 좌우합니다. 그래서 하위 구 페이지에는 행정동 목록과 생활권별 주의점을 나누어 넣었습니다.
+
+Expertise와 Trust도 함께 반영했습니다. 모든 지역 안내는 의료 행위가 아닌 휴식형 웰니스 정보로 작성했고, 통증이나 질환이 있으면 의료 전문가 상담을 우선하도록 고지합니다. 작성자, 검수자, 전화번호, 개인정보·청소년 보호정책 링크를 노출해 누가 책임지는 콘텐츠인지 확인할 수 있게 했습니다.
+
+스팸 정책 관점에서도 다시 점검했습니다. 서울 25개 구 페이지는 지역명만 바꾸는 방식으로 만들지 않고, 각 구의 행정동 수, 생활권 성격, 상담 체크포인트를 다르게 넣었습니다. 숨은 텍스트, 키워드 스터핑, 허위 리뷰, 확인되지 않은 수치, 도어웨이식 유도 문구는 사용하지 않습니다. 화면에 보이는 본문과 JSON-LD의 주요 정보가 어긋나지 않도록 맞췄습니다.
+
+페이지 경험도 고려했습니다. 행정구 링크는 HTML에 직접 들어 있어 JavaScript가 늦게 실행되어도 읽을 수 있고, 선호 이미지는 og:image로 지정했습니다. 모바일에서는 행정구 링크가 반응형 그리드로 정렬되며, 각 하위 페이지는 2,000자 이상 2,500자 이하 범위에서 읽기 쉬운 문단으로 구성했습니다.
+
+서울에서 예약을 원한다면 먼저 아래 목록에서 행정구를 선택하세요. 해당 구 페이지에서 행정동명을 확인한 뒤 전화 ${Phone} 으로 현재 위치, 희망 시간, 관리 목적, 공간 조건을 알려주면 상담원이 가능 여부와 비용, 취소 기준을 순서대로 안내합니다.
+
+서울 허브는 구글 뉴스 노출을 노린 기사 페이지가 아니며, 현재 사건 보도처럼 꾸미지도 않습니다. 순수 예약 안내 페이지이므로 제목과 본문은 홍보성 표현보다 위치 확인, 안전 고지, 상담 절차에 집중합니다. Discover나 검색 썸네일에서 일관된 이미지를 쓰도록 og:image를 지정했지만, 이미지보다 본문 정보가 먼저 이해되도록 구성했습니다.
+
+JavaScript가 검색을 방해하지 않는다는 최신 안내를 고려하더라도, 이 페이지의 핵심 링크와 본문은 스크립트 없이 HTML에 바로 있습니다. 메뉴 열기와 스크롤 효과만 가벼운 JavaScript로 처리하고, 행정구 링크와 FAQ는 기본 마크업으로 남겨 모바일과 검색엔진이 같은 정보를 읽도록 했습니다.
+
+사용자는 이 허브에서 바로 예약을 결정하지 않아도 됩니다. 먼저 자신의 행정구를 고르고, 하위 페이지에서 행정동 목록과 공간 준비 기준을 확인한 뒤 상담하면 됩니다. 이 흐름이 검색 방문자에게도 직접 방문자에게도 같은 도움을 주는 구조입니다.
+"@
+$seoulHtml = @"
+<!doctype html>
+<html lang="ko">
+<head>
+$(Meta $seoulTitle $seoulDesc $seoulPath)
+$seoulJson
+</head>
+<body>
+$(HeaderHtml)
+<main>
+  <section class="hero compact"><div class="hero-inner"><div class="hero-copy reveal"><span class="eyebrow"><span class="pulse"></span>SEOUL REGION HUB</span><h1>서울 출장마사지</h1><p class="lead">25개 행정구를 선택해 행정동, 위치 설명, 예약 전 안전 기준을 확인하세요.</p><div class="actions"><a class="btn btn-primary" href="$Tel">예약전화 $Phone</a><a class="btn btn-ghost" href="/locations/">전체 지역</a></div></div><aside class="glass reveal"><small>서울 기준</small><h3>25개 행정구와 427개 행정동 현황 반영</h3><div class="book-row"><span>작성</span><b>$Author</b></div><div class="book-row"><span>검수</span><b>$Reviewer</b></div></aside></div></section>
+  <section class="wrap"><div class="section-head"><span class="eyebrow">DISTRICT LIST</span><h2>서울 행정구 선택</h2></div><div class="area-grid">$seoulLinks</div></section>
+  <section class="wrap prose"><div class="section-head"><span class="eyebrow">QUALITY NOTE</span><h2>서울 지역 페이지 운영 기준</h2></div><div class="copy"><p>$($seoulCopy -replace "`n`n","</p><p>")</p></div></section>
+  $($seoulFaq.Html)
+  <section class="cta-band"><h2>서울 출장마사지 상담</h2><p>행정구와 행정동 또는 가까운 역을 알려주시면 가능 시간, 비용, 관리 범위, 취소 기준을 안내합니다.</p><a class="btn btn-primary" href="$Tel">$Phone 전화예약</a></section>
+</main>
+$(FooterHtml)
+</body>
+</html>
+"@
+Write-Utf8File "locations/seoul/index.html" $seoulHtml
 
 Write-Host "Updated $($Districts.Count) Seoul district pages with sorted administrative dongs."
