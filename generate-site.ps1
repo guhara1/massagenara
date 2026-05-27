@@ -91,6 +91,7 @@ function Meta([string]$Title, [string]$Description, [string]$Path) {
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/region.css">
 "@
 }
 
