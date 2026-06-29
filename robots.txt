@@ -3,10 +3,26 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: https://remarkable-parfait-6ab17d.netlify.app/sitemap.xml
-
+# 검색엔진별 전체 색인 허용 (빠른 인덱싱)
 User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Yeti
 Allow: /
+
+User-agent: Daum
+Allow: /
+
+User-agent: Daumoa
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+Sitemap: https://massagenara.netlify.app/sitemap.xml
